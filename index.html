@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tashreeq Engelbrecht - IT Professional Portfolio</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #cccccc; /* Light gray for general text */
+            background-color: #0a192f; /* Dark blue background */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #112240; /* Slightly lighter dark blue for header */
+            color: #e6f1ff; /* Off-white for header text */
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #64ffda; /* Teal accent color for name */
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            color: #ccd6f6; /* Lighter blue for tagline */
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: #a8b2d1; /* Muted blue for nav links */
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #64ffda; /* Teal accent on hover */
+        }
+
+        nav a.active {
+            color: #64ffda; /* Active link color */
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background-color: #0a192f; /* Dark blue background for general sections */
+            border-radius: 5px;
+        }
+
+        section:first-of-type {
+            margin-top: 2rem;
+        }
+
+        /* Headings */
+        h2 {
+            color: #ccd6f6; /* Lighter blue for section titles */
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            border-bottom: 2px solid #64ffda; /* Teal accent for border */
+            padding-bottom: 0.5rem;
+            position: relative;
+            width: fit-content; /* Make border only as wide as text */
+            margin-left: auto; /* Center the heading */
+            margin-right: auto; /* Center the heading */
+            text-align: center; /* Ensure text inside is centered */
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%; /* Center the accent line */
+            transform: translateX(-50%); /* Adjust for the width */
+            width: 30px; /* Shorter accent line */
+            height: 2px;
+            background: #64ffda; /* Teal accent */
+        }
+
+        h3 {
+            color: #ccd6f6; /* Lighter blue for subheadings */
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+
+        /* About Section - Designed to mimic the white container in the image */
+        #about {
+            background-color: #112240; /* Slightly lighter dark blue for the about section container */
+            padding: 3rem;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+            text-align: center; /* Center the profile container and button */
+        }
+
+        #about p {
+            text-align: left; /* Override for the main paragraph for readability */
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #a8b2d1;
+        }
+
+        .profile-container {
+            margin-bottom: 1rem; /* Adjust margin below picture */
+            display: inline-block; /* Allows the heading to be centered above it properly */
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #64ffda; /* Teal border for profile picture */
+            margin-bottom: 0.5rem; /* Reduced margin below picture */
+            box-shadow: 0 5px 20px rgba(100, 255, 218, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+        }
+
+        /* CV Button */
+        .cv-button {
+            display: block; /* Make it a block-level element */
+            background-color: transparent; /* Transparent background */
+            color: #64ffda; /* Teal text color */
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #64ffda; /* Teal border */
+            width: fit-content; /* Adjust width to content */
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto; /* Center horizontally */
+        }
+
+        .cv-button:hover {
+            background-color: rgba(100, 255, 218, 0.1); /* Slight teal tint on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(100, 255, 218, 0.2);
+        }
+
+        /* Lists */
+        ul {
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+            color: #a8b2d1; /* Muted blue for list items */
+        }
+
+        li {
+            margin-bottom: 0.7rem;
+            position: relative;
+        }
+
+        li::marker {
+            color: #64ffda; /* Teal for list markers */
+        }
+
+        /* Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            /* UPDATED: Changed minmax from 400px to 300px to allow smaller project cards */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Project and Experience Items */
+        .project {
+            background-color: #112240; /* Slightly lighter dark blue for project/experience cards */
+            padding: 2rem;
+            border-radius: 5px;
+            border-left: 3px solid #64ffda; /* Teal accent border on the left */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left; /* Ensure text inside projects is left-aligned */
+            height: fit-content; /* Allow projects to have different heights */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+
+        .project h3 {
+            margin-bottom: 1rem;
+            color: #64ffda; /* Teal for project/experience titles */
+            font-size: 1.5rem;
+        }
+
+        .project p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #a8b2d1; /* Muted blue for project/experience descriptions */
+            flex-grow: 1; /* Allow description to grow and push button to bottom */
+        }
+
+        .project a {
+            color: #64ffda; /* Teal for project links */
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border: 1px solid #64ffda; /* Teal border for links */
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: auto; /* Push button to bottom of card */
+            width: fit-content;
+            align-self: flex-start;
+        }
+
+        .project a:hover {
+            background-color: rgba(100, 255, 218, 0.1); /* Slight teal tint on hover */
+            color: #64ffda;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(100, 255, 218, 0.2);
+        }
+
+        /* Project Images */
+        .project img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #112240; /* Border color matching the card background */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Experience Section - Keep original layout */
+        #experience .project {
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center; /* Center content in contact section */
+        }
+        #contact p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #a8b2d1; /* Muted blue for contact details */
+        }
+
+        #contact a {
+            color: #64ffda; /* Teal for contact links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        #contact a:hover {
+            color: #a8b2d1; /* Muted blue on hover */
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #020c1b; /* Even darker blue for footer */
+            color: #a8b2d1; /* Muted blue for footer text */
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 0.3rem 0;
+                padding: 0.8rem 2rem;
+                width: 150px;
+                text-align: center;
+            }
+
+            section {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+
+            .project {
+                padding: 1.5rem;
+            }
+            #about p {
+                text-align: center; /* On small screens, center the about text */
+            }
+
+            /* Responsive grid - single column on mobile */
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            section {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .cv-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .project {
+                padding: 1rem;
+            }
+        }
+
+        /* Medium screens - adjust grid minimum width */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .projects-grid {
+                /* UPDATED: Changed minmax from 350px to 300px for consistency with the main grid rule */
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tashreeq Engelbrecht</h1>
+        <p>IT Graduate | Aspiring Web Developer</p>
+        <nav>
+            <ul>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="profile-container">
+            <img src="Myself.jpg" alt="Tashreeq Engelbrecht" class="profile-picture">
+        </div>
+        <p>I am a recent graduate with a Bachelor of Science degree in Information Technology and an aspiring web developer, passionate about web development, cloud computing, and networking. With hands-on experience in Python, Java, C++, JavaScript, HTML, and CSS, I have applied these skills in real-world projects through coursework and a Python development internship at Cognifyz Technologies. I enjoy solving complex problems with a detail-oriented approach and am eager to contribute to innovative tech solutions while continuously learning and growing.</p>
+
+        <a href="https://drive.google.com/file/d/1Id0SaLnUqXJ9XXjqNK7SvSY78e45CVW5/view?usp=sharing" download="Tashreeq_CV.pdf" class="cv-button">
+            📄 Download My CV
+        </a>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Technologies</h2>
+        <h3>💻 Programming Languages</h3>
+        <ul>
+            <li>Python</li>
+            <li>Java</li>
+            <li>C++</li>
+            <li>C#</li>
+            <li>JavaScript</li>
+        </ul>
+
+        <h3>🌐 Web & Mobile Development</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Android Studio</li>
+        </ul>
+
+        <h3>☁ Cloud & Networking</h3>
+        <ul>
+            <li>Cloud Computing</li>
+            <li>Networking</li>
+            <li>Server Technology</li>
+        </ul>
+
+        <h3>🔐 Cybersecurity & AI</h3>
+        <ul>
+            <li>Cybersecurity Fundamentals</li>
+            <li>Artificial Intelligence (AI)</li>
+            <li>Machine Learning</li>
+            <li>Data Science</li>
+            <li>Big Data & IoT</li>
+        </ul>
+
+        <h3>🛠 Software & Tools</h3>
+        <ul>
+            <li>Microsoft Visual Studio</li>
+            <li>Visual Studio Code</li>
+            <li>NetBeans</li>
+            <li>Jupyter Notebook</li>
+            <li>Notepad++</li>
+            <li>Codeblocks</li>
+            <li>Visual Basic.NET</li>
+            <li>Firebase</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+
+        <div class="project">
+            <h3>Vector Logistics</h3>
+            <p><strong>Merchandiser (Part Time)</strong> | Cape Town and surrounding areas – South Africa</p>
+            <p><em>Dec 2017 – Feb 2019</em></p>
+            <ul>
+                <li>Successfully managed and replenished stock for three major Pick n Pay branches, ensuring consistent product availability and optimizing shelf space utilization.</li>
+                <li>Reduced stock discrepancies through diligent inventory checks and accurate replenishment planning.</li>
+                <li>Improved customer satisfaction by maintaining organized and well-stocked shelves, contributing to a positive shopping experience.</li>
+                <li>Proactively identified and reported damaged or unsuitable stock items, minimizing waste and upholding product quality standards.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <h3>Innovative Transport Solutions</h3>
+            <p><strong>Traffic Surveyor</strong> | Cape Town - South Africa</p>
+            <p><em>Sep 2017 – Nov 2017</em></p>
+            <ul>
+                <li>Collected and analyzed traffic data over 14-hour shifts, providing critical insights for urban planning and transportation optimization.</li>
+                <li>Ensured data accuracy by recording public transport usage (trains, buses, taxis) at the terminus.</li>
+                <li>Contributed to a comprehensive study that informed decisions on public transport infrastructure improvements.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project">
+                <h3>Capaciti AI Chatbot</h3>
+                <p>Developed a chatbot on Landbot using no-code AI tools to assist users in navigating information about the CapaCiTi program. The chatbot successfully provided instant access to program information, reducing common user queries and significantly improving the user onboarding experience.</p>
+                <img src="Chatbot.JPG" alt="Capaciti AI Chatbot Screenshot">
+                <a href="https://landbot.online/v3/H-2756299-HAUH1YBLM159342N/index.html" target="_blank">View Project</a>
+            </div>
+
+            <div class="project">
+                <h3>SkillsBridge</h3>
+                <p>A web-based system that allows users, including students, employees, and community members - to request digital learning resources, such as PDFs, training slots, mentorship, and course enrollments. This user-friendly system streamlined the request process, reducing administrative overhead and increasing engagement with available training materials.</p>
+                <img src="Skillsbridge.JPG" alt="SkillsBridge Screenshot">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="http://127.0.0.1:5501/SkillsBridge%20(2)/public/index.html" target="_blank">📂 View Project</a>
+                    <a href="https://github.com/Tashreeq12/SkillsBridge2.git" target="_blank">📂 View Code</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>RatingApp</h3>
+                <p>A user-friendly Android application designed to facilitate easy service rating and feedback collection. This app empowers users to provide star ratings, written feedback, and categorise their experience by service type. Upon submitting a rating, users receive an uplifting motivational quote, enhancing their interaction with the app.</p>
+                <img src="Ratingapp.JPG" alt="RatingApp Screenshot">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="VID-20250610-WA0128 1.mp4" target="_blank">📱 Watch Demo Video</a>
+                    <a href="https://github.com/Tashreeq12/AndroidRatingApp.git" target="_blank">📂 View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:tashreeqengelbrecht69@gmail.com">tashreeqengelbrecht69@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/tashreeq-engelbrecht-409106206/" target="_blank">My LinkedIn</a></p>
+        <p>Phone: <a href="tel:+27YourPhoneNumberHere">0659209741</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Tashreeq Engelbrecht. All rights reserved.</p>
+    </footer>
+
+    <script src="./IT Professional Portfolio_files/script.js.download"></script>
+</body>
+</html>
